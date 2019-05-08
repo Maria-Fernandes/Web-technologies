@@ -1,0 +1,158 @@
+<html>
+<head>
+<script>
+	function viewJSON(requestURL){
+		if(requestURL==false){
+			alert("Please enter the file name!");
+		}
+		else{
+			jsonObj = loadJSON(requestURL);
+
+		if (window.ActiveXObject) { //if IE, simply execute script (due to async prop).
+				if (jsonObj.parseError.errorCode != 0) {
+				var myErr = jsonObj.parseError;
+				generateError(jsonObj);
+				hWin = window.open("", "Error", "height=300,width=340");
+				hWin.document.write(html_text);
+			} 
+			else 
+				{ 
+					generateHTML(jsonObj);
+					hWin = window.open("", "Assignment4", "height=800,width=1005");
+					hWin.document.write(html_text);
+				}
+			}
+		else //else if FF, execute script once JSON object has loaded
+			{ 
+				jsonObj.onload=generateHTML(jsonObj);
+				hWin = window.open("", "Assignment4", "height=800,width=1005");
+				hWin.document.write(html_text); 
+			} 
+			hWin.document.close(); 
+		}
+	}
+
+	function loadJSON(url) {
+		if (window.XMLHttpRequest)
+		{
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+		} 
+		else 
+		{
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+	    }
+		xmlhttp.open("GET",url,false); // "synchronous"
+		try{
+			xmlhttp.send();
+            if(xmlhttp.status=="404"){
+                alert("File Not Found!");
+            }
+		}
+		catch{
+			alert("File Not Found!");
+		}
+		jsonObj= JSON.parse(xmlhttp.responseText);
+		return jsonObj; 
+	}
+    
+    function generateHTML(jsonObj) {
+    	x="120px"; y="170px";
+    	root=jsonObj.DocumentElement;
+    	titleData=jsonObj.Mainline.Table.Header.Data;
+    	if(!jsonObj.Mainline.Table.Row){
+    		alert("Invalid File! It contains no Flims");
+    	}
+    	valueData=jsonObj.Mainline.Table.Row;
+    	html_text="<html><head><title>Highest-grossing films</title></head><body style=overflow-x:hidden>";
+    	html_text+="<table border='2'>";
+    	html_text+="<tbody>";
+    	html_text+="<tr>";
+
+    	// output out the title
+    	html_text+="<th style=overflow:hidden;max-width:60px;min-width:60px;>"+titleData[0]+"</th>";
+            html_text+="<th style=overflow:hidden;max-width:50px;min-width:50px;>"+titleData[1]+"</th>";
+            html_text+="<th style=max-width:100%;min-width:100%;>"+titleData[2]+"</th>";
+            html_text+="<th style=overflow:hidden;max-width:100px;min-width:100px;>"+titleData[3]+"</th>";
+            html_text+="<th style=overflow:hidden;max-width:405px;min-width:405px;>"+titleData[4]+"</th>";
+            html_text+="<th style=overflow:hidden;max-width:120px;min-width:120px;>"+titleData[5]+"</th>";
+
+    	html_text+="</tr>";
+    	// output out the values
+    	for(i=0;i<valueData.length;i++) {
+    		valueNodeList=valueData[i];
+    		html_text+="<tr>"; 
+    		valueNodeArray = Object.keys(valueNodeList);
+
+    		for(j=0;j<valueNodeArray.length;j++) {
+    			index=valueNodeArray[j]
+                if(index=="Title"){//handle titles separately
+                    html_text+="<td style=overflow:hidden;max-width:60px;min-width:60px;>"+ valueNodeList[index] +"</td>";
+                } 
+                else
+                if(index=="Year"){//handle year separately
+                    html_text+="<td style=overflow:hidden;max-width:40px;min-width:40px;>"+ valueNodeList[index] +"</td>";
+                } 
+    			else 
+    			if(index=="Hubs"){//handle hubs separately
+                    hubs=valueNodeList[index].Hub;
+                    if(hubs[0]=="" && hubs[1]==""){
+                    	html_text+="<td style=max-width:100%;min-width:100%;>"+ hubs[0] +"";
+                    	html_text+=""+ hubs[1] +"</td>";
+                    }
+                    else{
+                    	html_text+="<td><ul><li style=font-weight:bold;>"+ hubs[0] +"</li>";
+                    	html_text+="<li>"+ hubs[1] +"</li></ul></td>";
+                    }
+    			}
+                if(index=="Gross"){//handle year separately
+                    html_text+="<td style=overflow:hidden;max-width:100px;min-width:100px;>"+ valueNodeList[index] +"</td>";
+                } 
+                else
+    			if(index=="HomePage"){//handle links separately
+    				html_text+="<td style=overflow:hidden;max-width:405px;min-width:405px;><a style=white-space:nowrap; href="+valueNodeList[index]+">"+ valueNodeList[index] +"</a></td>";
+    			}
+                if(index=="Logo"){//handle images separately
+                    if(valueNodeList[index]==""){
+                        html_text+="<td style=max-width:120px;min-width:120px;></td>";
+                    }
+                    else{
+                        html_text+="<td><img src='"+ valueNodeList[index] +"' width='"+x+"' height='"+y+"'></td>";
+                    }
+                }
+    		}
+    		html_text+="</tr>";
+    	}
+
+    	html_text+="</tbody>";
+		html_text+="</table>";
+		html_text+="</body></html>"; 
+    }
+</script>
+<style type="text/css">
+    .formHeading{
+    text-align: center;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 130px;
+}
+
+.inputForm{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+</style>
+</head>
+<body>
+<div class="formHeading">Enter URL for Highest-grossing films List JSON File:
+<form name="myform" method="POST" id="location">
+<input type="text" name="jsonField"  class="inputForm" autofocus/>
+<br/>
+<input type="button" name="submit" value="Submit Query" onClick="viewJSON(jsonField.value)" />
+</form>
+</div>
+</body>
+</html>
