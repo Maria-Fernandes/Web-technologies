@@ -1,0 +1,2156 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-svg-round-progressbar/0.4.8/roundProgress.min.js"></script>
+</head>
+
+<style>
+
+@media screen and (min-width: 200px) and (max-width: 800px){
+.myBtn {
+margin-left:0px !important;
+}
+
+.padding-btm{
+  padding-bottom: 0vh!important;
+}
+
+#keyword-label{
+  margin-bottom: 0px!important;
+}
+
+#from-label{
+  margin-bottom: 0px!important;
+}
+
+.btn-margin{
+    margin-right:10rem!important;;
+  }
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin-right:-27px!important;
+   }
+
+#wish,#shipping,#seller,#photos,#similar_products{
+  background-color: white;
+  color:black;
+  padding:4px;
+}
+#product{
+  padding:4px;
+  margin-left: 2.6rem;
+}
+
+#list{
+  position:absolute!important;
+}
+
+hr {
+    margin-top: -0.3rem!important;
+  }
+
+  .column {
+  -ms-flex: 100%; /* IE10 */
+  flex: 100%!important;
+  max-width: 100%!important;
+  padding: 0 4px!important;
+}
+
+.buttons-second-table{
+    margin-top:4rem!important;;
+  }
+
+.fb-btn{
+    margin-left: 270px!important;
+  }
+}
+
+.star{
+  font-size: 8px!important;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.background-color{
+  background-color:#1d222b;
+}
+
+.font-color{
+  color:white;
+}
+
+.title-css{
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.material-icons{
+  font-size:18px;
+  vertical-align: text-bottom;
+}
+
+.myBtn{
+  margin-left:30px;
+}
+
+.padding-btm{
+  padding-bottom: 8vh;
+}
+
+.error-style{
+  color: red;
+    font-size: 12px;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff!important;
+    background-color: black;
+    border-color: white;
+    border: none;
+}
+
+.page-link:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    color: black;
+    border: none;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    margin-right:300px;
+   }
+
+   .margins{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+   }
+
+.row1 {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 33%; /* IE10 */
+  flex: 33%;
+  max-width: 33%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+#table1_wrapper{
+  float:right;
+}
+
+.details{
+  padding: 5px;
+  border-radius: 0px;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+}
+
+.paginate_button{
+  padding:2px;
+}
+
+.page-link:hover {
+    text-decoration: underline;
+}
+
+.underline:hover {
+    text-decoration: underline;
+}
+
+.floating{
+  margin-right:30px;
+}
+
+.hoverTable tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    hr {
+    margin-top: -1px;
+  }
+
+  md-icon{
+    display:none;
+  }
+
+  .btn-margin{
+    margin-right:-7.5rem;
+  }
+
+  .space-between-btns{
+    margin-right:1rem;
+  }
+
+  .buttons-second-table{
+    margin-top:0rem;
+  }
+
+  .fb-btn{
+    margin-left: 350px;
+  }
+
+  md-autocomplete md-progress-linear { display: none; }
+
+</style>
+
+
+<body ng-app = "firstApplication" ng-controller = "autoCompleteController as ctrl" ng-cloak>
+
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '427908211289689',
+      xfbml      : true,
+      version    : 'v3.2'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Product Images</h5>
+      </div>
+      <div class="modal-body" id="modalBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary shadow-none" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container background-color py-3" id="trigger-div">
+  <h2 class="font-color title-css form-group row justify-content-center align-items-center pb-2">Product Search</h2>
+  <form class="form-horizontal">
+
+    <div class="form-group row justify-content-center align-items-center">
+      <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color" id="keyword-label" required>Keyword<i class="material-icons star">star</i></label>
+      <div class="col-sm-5 col-md-5 col-lg-5">
+        <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Enter Product Name (eg. iphone8)">
+        <p class="font-color error-style" id="error-keyword" style="display:none;">Please enter a keyword</p>
+      </div>
+    </div>
+    
+    <div class="form-group row justify-content-center align-items-center">
+     <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color">Category</label>
+     <div class="col-sm-5 col-md-5 col-lg-5">
+      <select class="form-control col-sm-5 col-md-5 col-lg-5" name="category" id="category">
+        <option value="default" selected>All Categories</option>
+        <option value="550">Art</option>
+        <option value="2984">Baby</option>
+        <option value="267">Books</option>
+        <option value="11450">Clothing Shoes & Accessories</option>
+        <option value="58058">Computers/Tablets & Networking</option>
+        <option value="26395">Health & Beauty</option>
+        <option value="11233">Music</option>
+        <option value="1249">Video Games & Consoles</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="form-group row justify-content-center align-items-center">
+      <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color">Condition</label>
+      <div class="col-sm-5 col-md-5 col-lg-5">
+        <input type="checkbox" id="new" name="new" value="new"><label class="checkbox-inline font-color px-2">New</label>
+        <input type="checkbox" id="used" name="used" value="used"><label class="checkbox-inline font-color px-2">Used</label>
+        <input type="checkbox" id="unspecified" name="unspecified" value="unspecified"><label class="checkbox-inline font-color px-2">Unspecified</label>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center align-items-center">
+      <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color">Shipping Options</label>
+      <div class="col-sm-5 col-md-5 col-lg-5">
+        <input type="checkbox" id="local" name="local" value="local"><label class="checkbox-inline font-color px-2">Local Pickup</label>
+        <input type="checkbox" id="free" name="free" value="free"><label class="checkbox-inline font-color px-2">Free Shipping</label>
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center align-items-center">
+      <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color">Distance</label>
+      <div class="col-sm-5 col-md-5 col-lg-5">
+        <input type="text" class="form-control" name="distance" placeholder="10" id="distance">
+      </div>
+    </div>
+
+    <div class="form-group row justify-content-center align-items-center">
+      <label class="control-label col-sm-2 col-md-2 col-lg-2 font-color padding-btm" id="from-label">From<i class="material-icons star">star</i></label>
+      <div class="col-sm-5 col-md-5 col-lg-5">
+        <div class="radio font-color"><input type="radio" name="location_btn" value="here" id="here" checked onclick="disableZipcodeBox()"><label class="px-2">Current Location</label></div>
+        <div class="radio font-color"><input type="radio" name="location_btn" value="zip" id="zip" onclick="enableZipcodeBox()"><label class="px-2">Other. Please specify zip code:</label></div>
+       <div layout = "column" ng-cloak>
+            <form ng-submit = "$event.preventDefault()">              
+               <md-autocomplete
+                  md-input-id="zipcode1"
+                  md-selected-item = "ctrl.selectedItem"
+                  md-selected-item-change="ctrl.selectedItemChange(item)"
+                  md-search-text-change = "ctrl.searchTextChange(ctrl.searchText)"
+                  md-search-text = "ctrl.searchText"
+                  md-items="item in searchTextChange(ctrl.searchText)"
+                  md-item-text = "item.display"
+                  >
+                  <md-item-template>
+                     <span md-highlight-text = "ctrl.searchText"
+                        md-highlight-flags = "^i">{{item.display}}</span>
+                  </md-item-template>
+               </md-autocomplete>
+               <br/>
+            </form>
+      </div>
+        <p class="font-color error-style" id="error-zipcode" style="display:none;margin-top: -1rem;">Please enter a zip code</p>
+        </div>
+      </div>
+
+    <div class="form-group row justify-content-center align-items-center form-bottom-padding btn-margin">
+      <div class="space-between-btns">
+        <button type="button" class="btn shadow-none" id="search_btn" onclick="submitForm()"><i class="material-icons">search</i>Search</button>
+      </div>
+      <div >
+        <button type="button" class="btn myBtn shadow-none" onclick="clearForm()" id="clear"><i class="material-icons">clear_all</i>Clear</button>
+      </div>
+      <div class="col-sm-5 col-md-5 col-lg-5"></div>
+     </div>
+
+  </form>
+</div>
+<div class="container py-3" style="text-align: center;">
+  <button id="result" type="button" class="btn shadow-none" onclick="changeColorResult()" style='background-color: rgb(29, 34, 43);
+    color: white;'>Result</button>
+    <button id="wish" type="button" class="btn shadow-none" onclick="changeColorWish()">Wish List</button>
+  </div>
+<div class="progress container" style="padding: 0;display:none;" id="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+</div>
+<div id="drawfirsttable" class="col-sm-10 col-md-10 col-lg-10" style="margin: auto;margin-top: 3rem;"></div>
+<div id="wishlisttable" class="col-sm-10 col-md-10 col-lg-10" style="margin: auto;margin-top: 3rem;"></div>
+<div id="header" class="col-sm-10 col-md-10 col-lg-10" style="margin: auto;margin-top: 3rem;"></div>
+<div id="header1" class="col-sm-10 col-md-10 col-lg-10" style="margin: auto;margin-bottom: 5rem;"></div>
+<div id="drawsecondtable" class="col-sm-10 col-md-10 col-lg-10 buttons-second-table" style="margin-right: auto;margin-left: auto;"></div>
+ <button id='svgRound' style='display:none;' ng-click="newBtn();">Click to add Div!</button>
+
+
+<script>
+  var initialData="";
+  var selectedItemId="";
+  var selectedItemDetails="";
+  var maxToShow=5;
+  var selectedItemTitle="";
+  var domdata=[];
+  var domcancel=[];
+  var domdatatemp=[];
+  var rows=[];
+  var selectedItemDom="";
+  var prevItemDom="";
+  var domdatawish="";
+  var previousValues="";
+  var zipcodeClicked=false;
+
+  window.setInterval(function(){foo()},1000);
+
+  function foo(){
+     var letters = /^[0-9a-zA-Z ]+$/;
+    if(document.getElementById('zipcode1').value.length==5 && document.getElementById('zip').checked && (letters).test(document.getElementById('zipcode1').value)){
+      document.getElementById("search_btn").disabled = false;
+    }
+  }
+
+  window.onload = function() {
+     document.getElementById("search_btn").disabled = true;
+    document.getElementById('result').style.color = "white";
+    setTimeout(clearForm, 300);
+
+    if (window.XMLHttpRequest)
+      {
+       // code for IE7+, Firefox, Chrome, Opera, Safari
+         xmlhttp=new XMLHttpRequest();
+        } 
+        else 
+        {
+        // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); 
+         }
+        xmlhttp.open("GET", "http://ip-api.com/json" ,false);
+         xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState == 4 ){
+            var jsonObj = JSON.parse(xmlhttp.responseText);
+            zip = jsonObj.zip;
+        }
+      };
+      xmlhttp.send();
+  }
+
+
+  function changeColorResult(){
+    document.getElementById('result').style.backgroundColor = "black";
+    document.getElementById('result').style.color = "white";
+    document.getElementById('wish').style.backgroundColor = "white";
+    document.getElementById('wish').style.color = "black";
+    document.getElementById('drawfirsttable').style.display = "block";
+    document.getElementById('wishlisttable').style.display = "none";
+
+    for(var i=0;i<domcancel.length;i++){
+      domcancel[i].childNodes[7].childNodes[0].innerHTML="<i class='material-icons' style='margin:auto;color:black;' onclick='addElementToWishList1("+JSON.stringify(rows[i])+")'>add_shopping_cart</i>";
+    }
+
+    rows=[];
+    domcancel=[];
+
+  }
+
+  function changeColorWish(){
+    document.getElementById('wish').style.backgroundColor = "black";
+    document.getElementById('wish').style.color = "white";
+    document.getElementById('result').style.backgroundColor = "white";
+    document.getElementById('result').style.color = "black";
+    document.getElementById('drawfirsttable').style.display = "none";
+    document.getElementById('header').style.display = "none";
+    document.getElementById('header1').style.display = "none";
+    document.getElementById('drawsecondtable').style.display = "none";
+
+    generateWishListPage();
+  }
+
+  function generateWishListPage(){
+    var arrData=[];
+    var price=0;
+    var x=50,y=50;
+    var html_text="";
+    var html_text_temp="<button type='button' id='details1' class='btn btn-light shadow-none' style='margin-bottom: 7px;float:right;' onclick='callGenerateItemDetailsPage()'>Details<i class='material-icons'>chevron_right</i></button>";
+    arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+    if(arrData!=null){
+    if(arrData.length!=0){
+      html_text="<div><table id='wish_table' class='table table-striped table-dark' style='width:100%'>";
+      html_text+="<thead>";
+      html_text+="<tr>";
+      html_text+="<th>#</th>";
+      html_text+="<th>Image</th>";
+      html_text+="<th>Title</th>";
+      html_text+="<th>Price</th>";
+      html_text+="<th>Shipping</th>";
+      html_text+="<th>Seller</th>";
+      html_text+="<th>Wishlist</th>";
+      html_text+="</tr>";
+      html_text+="</thead>";
+      html_text+="<tbody>";
+
+      var i;
+      var tabledata=arrData;
+
+      for(i=0;i<tabledata.length;i++) {
+        if(tabledata[i].title!=undefined){
+          html_text+="<tr>";
+        var values=tabledata[i];
+        html_text+="<td>"+(i+1)+"</td>";
+
+        if(tabledata[i].galleryURL!=undefined){
+        if(tabledata[i].galleryURL[0])
+           html_text+="<td><img src='"+ tabledata[i].galleryURL[0] +"' width='"+x+"' height='"+y+"'></td>";
+         else
+          html_text+="<td>N/A</td>";
+        }
+        else
+        html_text+="<td>N/A</td>";
+        
+
+        if(tabledata[i].title!=undefined){
+        if(tabledata[i].title[0]){
+          var title="";
+          if(tabledata[i].title[0].length>=35){
+            var prop=tabledata[i].title[0].substring(0, 35);
+            if(prop[34]==' ')
+              title=prop+"...";
+            else{
+              var n = prop.lastIndexOf(" ");
+              title=prop.substring(0,n)+"...";
+            }
+          }
+          else{
+            title=tabledata[i].title[0];
+          }
+          html_text+="<td><a style='color: blue;text-decoration: none;' data-toggle='tooltip' data-placement='bottom' title='"+tabledata[i].title[0]+"' onclick='fetchDetailsOfItemDetailsPage(this,"+tabledata[i].itemId[0]+")'>"+ title +"</a></td>";
+        }
+         else
+          html_text+="<td>N/A</td>";
+        }
+        else
+        html_text+="<td>N/A</td>";
+
+       if(tabledata[i].sellingStatus!=undefined){
+          if(tabledata[i].sellingStatus[0].currentPrice!=undefined){
+        if(tabledata[i].sellingStatus[0].currentPrice[0].__value__){
+          html_text+="<td>"+ "$ "+tabledata[i].sellingStatus[0].currentPrice[0].__value__ +"</td>";
+          price+=parseFloat(tabledata[i].sellingStatus[0].currentPrice[0].__value__);
+        }
+        else
+          html_text+="<td>N/A</td>";
+         }
+         else
+           html_text+="<td>N/A</td>";
+       }
+         else
+           html_text+="<td>N/A</td>";
+
+       if(tabledata[i].shippingInfo!=undefined){
+          if(tabledata[i].shippingInfo[0].shippingServiceCost!=undefined){
+            if(tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__=="0.0")
+              html_text+="<td> Free Shipping </td>";
+             else if(tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__)
+              html_text+="<td> $"+tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__+"</td>";
+          }
+        else
+          html_text+="<td>N/A</td>";
+      }
+      else
+        html_text+="<td>N/A</td>";
+
+      if(tabledata[i].sellerInfo!=undefined){
+        if(tabledata[i].sellerInfo[0]!=undefined){
+          if(tabledata[i].sellerInfo[0].sellerUserName!=undefined){
+            if(tabledata[i].sellerInfo[0].sellerUserName[0]!=undefined && tabledata[i].sellerInfo[0].sellerUserName[0]!="")
+                  html_text+="<td>"+ tabledata[i].sellerInfo[0].sellerUserName[0]+"</td>";
+                else
+                  html_text+="<td>N/A</td>";
+             }
+              else
+                  html_text+="<td>N/A</td>";
+          }
+           else
+                  html_text+="<td>N/A</td>";
+        }
+         else
+                  html_text+="<td>N/A</td>";
+
+         html_text+="<td><button type='button' class='btn myBtn wishful shadow-none' style='margin:auto'><i class='material-icons' style='color:darkgoldenrod;' onclick='removeElementFromWishList(this,"+JSON.stringify(tabledata[i])+")'>remove_shopping_cart</i></button></td>";
+
+         html_text+="</tr>";
+        }
+
+      }
+      html_text+="<tr><td></td><td></td><td></td><td></td><td></td><td>Total shipping</td><td><span>$</span><span id='price'>"+price+"</span></td><tr>";
+      html_text+="</tbody>";
+      html_text+="</table></div>";
+
+    }
+    else{
+      html_text="<div class='alert alert-warning' role='alert' style='float: right;width: 100%;'>No Records</div>";
+    }
+
+    }
+    else{
+      html_text="<div class='alert alert-warning' role='alert' style='float: right;width: 100%;'>No Records</div>";
+    }
+    document.getElementById('wishlisttable').innerHTML=html_text_temp+html_text;
+      document.getElementById('wishlisttable').style.display="block";
+      document.getElementById('drawfirsttable').style.display="none";
+      document.getElementById('details1').disabled=true;
+
+  }
+
+    function addElementToWishList(data,rowData){
+      domdata.push(data.parentElement.parentElement.parentElement);
+      data.parentElement.innerHTML="<i class='material-icons' style='color:darkgoldenrod;' onclick='removeElementFromWishListTable1("+JSON.stringify(rowData)+")'>remove_shopping_cart</i>";
+      var arrData=[];
+      arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+      if(arrData==null){
+       arrData=[];
+      }
+      arrData.push(rowData);
+      localStorage.setItem("wishlistarr", JSON.stringify(arrData));
+    }
+
+    function removeElementFromWishList(data,rowData){
+      var arrData=[];
+      var arrDatatemp=[];
+      data.parentElement.parentElement.parentElement.remove()
+      var price=0;
+      var value=data.parentElement.parentElement.parentElement.childNodes[3].innerText;
+      var reducedValue=parseFloat(value.substring(2));
+
+      arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+      
+      for(var i=0;i<arrData.length;i++){
+        price+=parseFloat(arrData[i].sellingStatus[0].currentPrice[0].__value__);
+      }
+      
+      if((price-reducedValue)!=0){
+        document.getElementById('price').innerHTML=price-reducedValue;
+      }
+      else{
+        document.getElementById('wishlisttable').innerHTML="<button type='button' id='details1' class='btn btn-light shadow-none' style='margin-bottom: 7px;float:right;' onclick='callGenerateItemDetailsPage()'>Details<i class='material-icons'>chevron_right</i></button><div class='alert alert-warning' role='alert' style='float: right;width: 100%;'>No Records</div>";
+      }
+
+      for(var i=0;i<arrData.length;i++){
+        if(arrData[i].title[0]!=rowData.title[0])
+          arrDatatemp.push(arrData[i]);
+      }
+      localStorage.setItem("wishlistarr", JSON.stringify(arrDatatemp));
+      
+      var remembereddomdata=[];
+      var remembereddata=[];
+      for(var i=0;i<domdata.length;i++){
+        if(data.parentElement.parentElement.parentElement.childNodes[2].childNodes[0].title==domdata[i].childNodes[2].childNodes[0].title){
+          domcancel.push(domdata[i]);
+          rows.push(rowData);
+        }
+
+      }
+
+
+  }
+
+    function addElementToWishList1(rowdata){
+      for(var i=0;i<domdata.length;i++){
+        if(domdata[i].childNodes[2].childNodes[0].title==rowdata.title[0]){
+          domdata[i].childNodes[7].childNodes[0].innerHTML="<i class='material-icons' style='color:darkgoldenrod;' onclick='removeElementFromWishListTable1("+JSON.stringify(rowdata)+")'>remove_shopping_cart</i>";
+        }
+      }
+      var arrData=[];
+      arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+      if(arrData==null){
+       arrData=[];
+      }
+      arrData.push(rowdata);
+      localStorage.setItem("wishlistarr", JSON.stringify(arrData));
+    }
+
+  function removeElementFromWishListTable1(rowData){
+    domcancel=[];
+    rows=[];
+     var arrData=[];
+    var arrDatatemp=[];
+    for(var i=0;i<domdata.length;i++){
+      if(domdata[i].childNodes[2].childNodes[0].title==rowData.title[0]){
+        domdata[i].childNodes[7].childNodes[0].innerHTML="<i class='material-icons' style='margin:auto;color:black;' onclick='addElementToWishList1("+JSON.stringify(rowData)+")'>add_shopping_cart</i>";
+      }
+    }
+
+    arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+        for(var i=0;i<arrData.length;i++){
+        if(arrData[i].title[0]!=rowData.title[0])
+          arrDatatemp.push(arrData[i]);
+      }
+      localStorage.setItem("wishlistarr", JSON.stringify(arrDatatemp));
+
+    var remembereddomdata=[];
+      var remembereddata=[];
+      for(var i=0;i<domdata.length;i++){
+        if(domdata[i].childNodes[2].childNodes[0].title==rowData.title[0]){
+          domcancel.push(domdata[i]);
+          rows.push(rowData);
+        }
+      }
+  }
+
+  function addElementToWishListItem2(data){
+     domdata.push(selectedItemDom.parentElement.parentElement);
+     data.innerHTML="remove_shopping_cart";
+     data.style="color:darkgoldenrod";
+     data.attributes.onclick.nodeValue="removeElementFromWishListTableTest(this,"+JSON.stringify(properFormatSelectedItem)+")";
+      var arrData=[];
+      arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+      if(arrData==null){
+       arrData=[];
+      }
+      arrData.push(properFormatSelectedItem);
+      localStorage.setItem("wishlistarr", JSON.stringify(arrData));
+      selectedItemDom.parentElement.parentElement.childNodes[7].childNodes[0].innerHTML="<i class='material-icons' style='color:darkgoldenrod;' onclick='removeElementFromWishListTable1("+JSON.stringify(properFormatSelectedItem)+")'>remove_shopping_cart</i>";
+    }
+
+    function removeElementFromWishListTableTest(data,rowData){
+      data.innerHTML="add_shopping_cart";
+      data.style="color:black";
+      data.attributes.onclick.nodeValue="addElementToWishList1("+rowData+")";
+      removeElementFromWishListTable1(rowData);
+    }
+
+    function removeElementFromWishListItem2(data){
+      var arrData=[];
+      var arrDatatemp=[];
+      data.innerHTML="add_shopping_cart";
+      data.style="color:black";
+      data.attributes.onclick.nodeValue="addElementToWishList1("+JSON.stringify(properFormatSelectedItem)+")";
+
+      arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+
+      for(var i=0;i<arrData.length;i++){
+        if(arrData[i].title[0]!=properFormatSelectedItem.title[0])
+          arrDatatemp.push(arrData[i]);
+      }
+      localStorage.setItem("wishlistarr", JSON.stringify(arrDatatemp));
+      
+      var domdataimage=[];
+      for(var i=0;i<domdata.length;i++){
+        if(selectedItemDom.parentElement.parentElement.childNodes[2].childNodes[0].title==domdata[i].childNodes[2].childNodes[0].title){
+          domcancel.push(domdata[i]);
+          rows.push(properFormatSelectedItem);
+        }
+    }
+  }
+
+  var keywordClicked;
+  $( "#keyword" ).click(function() {
+     keywordClicked=true;
+   });
+
+
+  $( "#trigger-div" ).click(function(event) {
+     if(keywordClicked==true && document.getElementById('keyword').value=="" && event.target.id!="keyword" && event.target.id!="clear"){
+        $("#error-keyword").css("display","block");
+        document.getElementById('keyword').style.border="1px solid red";
+        $("#keyword-label").css("margin-bottom","3rem");
+     }
+     if(zipcodeClicked==true && document.getElementById('zipcode1').value=="" && event.target.id!="zipcode1" && event.target.id!="clear"){
+        $("#error-zipcode").css("display","block");
+        document.getElementById('zipcode1').style.border="1px solid red";
+     }
+   });
+
+  $('#keyword').on('keyup', function() {
+    var letters = /^[0-9a-zA-Z ]+$/;
+    if (this.value.length == 0) {
+      document.getElementById("search_btn").disabled = true;
+      $("#error-keyword").css("display","none");
+      $("#keyword-label").css("margin-bottom","0rem");
+      document.getElementById('keyword').style.border="none";
+     }
+     else
+    if((letters).test(this.value)){
+     $("#error-keyword").css("display","none");
+     $("#keyword-label").css("margin-bottom","0rem");
+     document.getElementById('keyword').style.border="none";
+     document.getElementById("search_btn").disabled = false;
+    }
+    else{
+      if(!(letters).test(this.value)){
+        document.getElementById("search_btn").disabled = true;
+        $("#error-keyword").css("display","block");
+        document.getElementById('keyword').style.border="1px solid red";
+        $("#keyword-label").css("margin-bottom","3rem");
+     }
+     else
+    if (this.value.length > 0) {
+          document.getElementById("search_btn").disabled = false;
+        }
+
+    }
+    });
+
+
+  function clearForm() {
+    keywordClicked=false;
+    zipcodeClicked=false;
+
+        document.getElementById('keyword').value = "";
+        document.getElementById('category').value = "default";
+        document.getElementById('new').checked = false;
+        document.getElementById('used').checked = false;
+        document.getElementById('unspecified').checked = false;
+        document.getElementById('local').checked = false;
+        document.getElementById('free').checked = false;
+        document.getElementById('distance').value = "";
+        document.getElementById('here').checked = true;
+        document.getElementById('zip').checked = false;
+        document.getElementById('zipcode1').value = "";
+
+        document.getElementById('zipcode1').disabled = true;
+
+        document.getElementById('error-keyword').style.display = "none";
+        document.getElementById('error-zipcode').style.display = "none";
+        document.getElementById('progress').style.display="none";
+
+
+        document.getElementById('drawfirsttable').style.display="none";
+        document.getElementById('header').style.display="none";
+        document.getElementById('header1').style.display="none";
+        document.getElementById('drawsecondtable').style.display="none";
+        document.getElementById('wishlisttable').style.display="none";
+        document.getElementById('result').style.backgroundColor = "black";
+        document.getElementById('result').style.color = "white";
+        document.getElementById('wish').style.backgroundColor = "white";
+        document.getElementById('wish').style.color = "black";
+    }
+
+    function enableZipcodeBox() {
+        document.getElementById('zipcode1').disabled = false;
+        document.getElementById("search_btn").disabled = true;
+        $('#zipcode1').on('keyup', function() {
+          var letters = /^[0-9]+$/;
+      if(this.value.length ==0){
+          document.getElementById("search_btn").disabled = true;
+          $("#error-zipcode").css("display","block");
+          document.getElementById('zipcode1').style.border="1px solid red";
+      }
+     if (this.value.length ==5 && (letters).test(document.getElementById('zipcode1').value)) {
+          document.getElementById("search_btn").disabled = false;
+          $("#error-zipcode").css("display","none");
+          document.getElementById('zipcode1').style.border="none";
+     }
+     if (this.value.length >0 && this.value.length !=5) {
+         document.getElementById("search_btn").disabled = true;
+         $("#error-zipcode").css("display","none");
+         document.getElementById('zipcode1').style.border="none";
+     }
+    });
+
+  $( '#zipcode1' ).on('click', function() {
+     zipcodeClicked=true;
+   });
+    }
+
+    function disableZipcodeBox() {
+        document.getElementById('zipcode1').disabled = true;
+    }
+
+    function submitForm() {
+      document.getElementById('progress').style.display="flex";
+        var distance;
+
+        if(document.getElementById('distance').value=="")
+          distance="10";
+        else
+          distance=document.getElementById('distance').value;
+
+      var path="http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=MariaFer-Test-PRD-216de56dc-63f77791&RESPONSE-DATA-FORMAT=JSON&RESTPAYLOAD&paginationInput.entriesPerPage=50&";
+        path+="keywords="+document.getElementById('keyword').value+"&";
+        if(document.getElementById('here').checked==true){
+        path+="buyerPostalCode=90007&itemFilter(0).name=MaxDistance&itemFilter(0).value="+distance+"&";
+        }
+        else{
+        path+="buyerPostalCode="+document.getElementById('zipcode1').value +"&itemFilter(0).name=MaxDistance&itemFilter(0).value="+distance+"&";
+        }
+        
+        var i=1;
+        
+        if(document.getElementById('free').checked ===false && document.getElementById('local').checked===false){
+         path+="itemFilter("+i+").name=FreeShippingOnly&itemFilter("+i+").value=true&";
+         i++;
+         path+="itemFilter("+i+").name=LocalPickUpOnly&itemFilter("+i+").value=true&";
+         i++;
+         }
+
+         else
+
+         if(document.getElementById('free').checked ===true && document.getElementById('local').checked===true){
+         path+="itemFilter("+i+").name=FreeShippingOnly&itemFilter("+i+").value=true&";
+         i++;
+         path+="itemFilter("+i+").name=LocalPickUpOnly&itemFilter("+i+").value=true&";
+         i++;
+         }
+
+         else
+
+         if(document.getElementById('free').checked ===true){
+         path+="itemFilter("+i+").name=FreeShippingOnly&itemFilter("+i+").value=true&";
+         i++;
+         path+="itemFilter("+i+").name=LocalPickUpOnly&itemFilter("+i+").value=false&";
+         i++;
+         }
+
+          else
+
+         if(document.getElementById('local').checked ===true){
+         path+="itemFilter("+i+").name=FreeShippingOnly&itemFilter("+i+").value=false&";
+         i++;
+         path+="itemFilter("+i+").name=LocalPickUpOnly&itemFilter("+i+").value=true&";
+         i++;
+         }
+
+         path+="itemFilter("+i+").name=HideDuplicateItems&itemFilter("+i+").value=true&";
+         i++;
+
+        var j=0;
+        if(document.getElementById('new').checked===true && document.getElementById('used').checked===true && document.getElementById('unspecified').checked===true){
+         path+="itemFilter("+i+").name=Condition&itemFilter("+i+").value("+j+")=New&";
+         j++;
+         path+="itemFilter("+i+").value("+j+")=Used&";
+         j++;
+         path+="itemFilter("+i+").value("+j+")=Unspecified&"; 
+        }
+        else
+         if(document.getElementById('new').checked===false && document.getElementById('used').checked===false && document.getElementById('unspecified').checked===false){
+         path+="itemFilter("+i+").name=Condition&itemFilter("+i+").value("+j+")=New&";
+         j++;
+         path+="itemFilter("+i+").value("+j+")=Used&";
+         j++;
+         path+="itemFilter("+i+").value("+j+")=Unspecified&"; 
+        }
+       else{
+        path+="itemFilter("+i+").name=Condition&";
+        if(document.getElementById('new').checked===true){
+        path+="itemFilter("+i+").value("+j+")=New&";
+        j++;
+        }
+        if(document.getElementById('used').checked===true ){
+         path+="itemFilter("+i+").value("+j+")=Used&";
+         j++;
+         }
+        if(document.getElementById('unspecified').checked===true ){
+         path+="itemFilter("+i+").value("+j+")=Unspecified&"; 
+         }
+        }
+
+        path+="outputSelector(0)=SellerInfo&outputSelector(1)=StoreInfo";
+        var res = encodeURIComponent(path);
+
+        var response;
+        $(document).ready(function() {
+        $.ajax({
+        url: 'http://csci571-node.us-east-2.elasticbeanstalk.com/',
+        data:"key="+res,
+        success: function(data) {
+            generateHTML(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('error ' + textStatus + " " + errorThrown);
+        }
+    });
+});
+    }
+
+    function callGenerateItemDetailsPage(){
+      generateItemDetailsPage(selectedItemDetails);
+    }
+
+    function generateHTML(jsonObj) {
+    initialData=jsonObj;
+    var arrData=[];
+    arrData=JSON.parse(localStorage.getItem("wishlistarr"));
+    x="50px"; y="50px";
+    if(jsonObj.findItemsAdvancedResponse[0].searchResult[0].item){
+      var tabledata=jsonObj.findItemsAdvancedResponse[0].searchResult[0].item;
+      var html_text="<div><button type='button' id='details' class='btn btn-light shadow-none' style='margin:auto;float:right;' onclick='callGenerateItemDetailsPage()'>Details<i class='material-icons'>chevron_right</i></button><table id='table1' class='table table-striped table-dark floating hoverTable' style='width:100%;'>";
+      html_text+="<thead>";
+      html_text+="<tr>";
+      html_text+="<th>#</th>";
+      html_text+="<th>Image</th>";
+      html_text+="<th>Title</th>";
+      html_text+="<th>Price</th>";
+      html_text+="<th>Shipping</th>";
+      html_text+="<th>Zip</th>";
+      html_text+="<th>Seller</th>";
+      html_text+="<th>Wishlist</th>";
+      html_text+="</tr>";
+      html_text+="</thead>";
+      html_text+="<tbody>";
+      var i;
+      for(i=0;i<tabledata.length;i++) {
+        html_text+="<tr>";
+        var values=tabledata[i];
+        html_text+="<td>"+(i+1)+"</td>";
+
+        if(tabledata[i].galleryURL!=undefined){
+        if(tabledata[i].galleryURL[0])
+           html_text+="<td><a target='_blank' rel='noopener noreferrer' href="+tabledata[i].galleryURL[0]+"><img src='"+ tabledata[i].galleryURL[0] +"' width='"+x+"' height='"+y+"'></a></td>";
+         else
+          html_text+="<td>N/A</td>";
+        }
+        else
+        html_text+="<td>N/A</td>";
+
+
+        if(tabledata[i].title!=undefined){
+        if(tabledata[i].title[0]){
+          var title="";
+          if(tabledata[i].title[0].length>=35){
+            var prop=tabledata[i].title[0].substring(0, 35);
+            if(prop[34]==' ')
+              title=prop+"...";
+            else{
+              var n = prop.lastIndexOf(" ");
+              title=prop.substring(0,n)+"...";
+            }
+          }
+          else{
+            title=tabledata[i].title[0];
+          }
+          html_text+="<td><a style='color: blue;text-decoration: none;' data-toggle='tooltip' data-placement='bottom' title='"+tabledata[i].title[0]+"' onclick='fetchDetailsOfItemDetailsPage(this,"+tabledata[i].itemId[0]+")'>"+ title +"</a></td>";
+        }
+         else
+          html_text+="<td>N/A</td>";
+        }
+        else
+        html_text+="<td>N/A</td>";
+
+       if(tabledata[i].sellingStatus!=undefined){
+          if(tabledata[i].sellingStatus[0].currentPrice!=undefined){
+        if(tabledata[i].sellingStatus[0].currentPrice[0].__value__)
+          html_text+="<td>"+ "$ "+tabledata[i].sellingStatus[0].currentPrice[0].__value__ +"</td>";
+        else
+          html_text+="<td>N/A</td>";
+         }
+         else
+           html_text+="<td>N/A</td>";
+       }
+         else
+           html_text+="<td>N/A</td>";
+
+       if(tabledata[i].shippingInfo!=undefined){
+          if(tabledata[i].shippingInfo[0].shippingServiceCost!=undefined){
+            if(tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__=="0.0")
+              html_text+="<td> Free Shipping </td>";
+             else if(tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__)
+              html_text+="<td> $"+tabledata[i].shippingInfo[0].shippingServiceCost[0].__value__+"</td>";
+          }
+        else
+          html_text+="<td>N/A</td>";
+      }
+      else
+        html_text+="<td>N/A</td>";
+
+
+    if(tabledata[i].postalCode!=undefined){
+        if(tabledata[i].postalCode[0])
+           html_text+="<td>"+ tabledata[i].postalCode[0]+"</td>";
+         else
+          html_text+="<td>N/A</td>";
+        }
+        else
+          html_text+="<td>N/A</td>";
+
+      if(tabledata[i].sellerInfo!=undefined){
+        if(tabledata[i].sellerInfo[0]!=undefined){
+          if(tabledata[i].sellerInfo[0].sellerUserName!=undefined){
+            if(tabledata[i].sellerInfo[0].sellerUserName[0]!=undefined && tabledata[i].sellerInfo[0].sellerUserName[0]!="")
+                  html_text+="<td>"+ tabledata[i].sellerInfo[0].sellerUserName[0]+"</td>";
+                else
+                  html_text+="<td>N/A</td>";
+             }
+              else
+                  html_text+="<td>N/A</td>";
+          }
+           else
+                  html_text+="<td>N/A</td>";
+        }
+         else
+                  html_text+="<td>N/A</td>";
+
+        var flag=true;
+
+         html_text+="<td><button type='button' class='btn myBtn wishful shadow-none' style='margin:auto'><i class='material-icons' onclick='addElementToWishList(this,"+JSON.stringify(tabledata[i])+")'>add_shopping_cart</i></button></td>";
+
+         html_text+="</tr>";
+
+      }
+      html_text+="</tbody>";
+      html_text+="</table></div>";
+      document.getElementById('progress').style.display="none";
+      document.getElementById('drawfirsttable').innerHTML=html_text;
+      document.getElementById('drawfirsttable').style.display="block";
+      document.getElementById('details').disabled = true;
+
+       $('#table1').dataTable( {
+     "ordering": false,
+     "searching": false,
+      "info": false,
+      "bLengthChange": false,
+      "language": {
+        "paginate": {
+            "previous": '<i class="fa fa-angle-double-left"></i>&nbsp;&nbsp;&nbsp;<span class=underline>Previous</span>',
+            "next":     '<span class=underline>Next</span>&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>'
+        }
+    }
+      } );
+
+    document.getElementById('table1_wrapper').classList.add("col-sm-12");
+    document.getElementById('table1_wrapper').classList.add("col-md-12");
+    document.getElementById('table1_wrapper').classList.add("col-lg-12");
+    document.getElementById('table1_paginate').parentElement.previousSibling.remove();
+    document.getElementById('table1_paginate').parentElement.classList.remove("col-md-7");
+    document.getElementById('table1_paginate').parentElement.classList.add("col-md-12");
+    document.getElementById('table1_paginate').parentElement.classList.add("col-lg-12");
+
+    }
+    else{
+      html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+      document.getElementById('progress').style.display="none";
+      document.getElementById('drawfirsttable').innerHTML=html_text;
+      document.getElementById('drawfirsttable').style.display="block";
+    }
+
+    }
+
+    function tempNavigation(data,rowData){
+      domdata.push(data.parentElement.parentElement.parentElement);
+      removeElementFromWishListTable1(rowData);
+    }
+
+
+    function fetchDetailsOfItemDetailsPage(wishlistdom,itemId){
+      if(prevItemDom.accessKey!=undefined){
+            prevItemDom.parentElement.parentElement.style.backgroundColor="";
+      }
+       if(wishlistdom.parentElement.parentElement.parentElement.parentElement.id=="table1"){
+        document.getElementById('details').disabled = false;
+       }
+       else{
+        document.getElementById('details1').disabled = false;
+       }
+      selectedItemId=itemId;
+      if(initialData!=""){
+       for(var i=0;i<initialData.findItemsAdvancedResponse[0].searchResult[0].item.length;i++){
+        if(itemId==initialData.findItemsAdvancedResponse[0].searchResult[0].item[i].itemId[0]){
+          properFormatSelectedItem=initialData.findItemsAdvancedResponse[0].searchResult[0].item[i];
+          break;
+        }
+      }
+      }
+      selectedItemDom=wishlistdom;
+        $(document).ready(function() {
+        $.ajax({
+          url: 'http://csci571-node.us-east-2.elasticbeanstalk.com/itemDetails?itemId='+itemId,
+          success: function(data) {
+          selectedItemDetails=data;
+          generateItemDetailsPage(data);
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+          alert('error ' + textStatus + " " + errorThrown);
+            }
+          });
+        });
+    }
+
+   function navigateBackToResultTable(){
+    selectedItemDom.parentElement.parentElement.style.backgroundColor="grey";
+    document.getElementById('progress').style.display="flex";
+    if(selectedItemDom.parentElement.parentElement.parentElement.parentElement.id=="table1"){
+      document.getElementById('drawfirsttable').style.display="block";
+    }
+  else{
+    document.getElementById('wishlisttable').style.display="block";
+  }
+    document.getElementById('header').style.display="none";
+    document.getElementById('header1').style.display="none";
+    document.getElementById('drawsecondtable').style.display="none";
+    document.getElementById('progress').style.display="none";
+    prevItemDom=selectedItemDom;
+   }
+
+
+    function generateItemDetailsPage(jsonObj){
+    document.getElementById('progress').style.display="flex";
+      if(jsonObj.Item!=undefined){
+      var tabledata=jsonObj.Item;
+      selectedItemTitle=tabledata.Title;
+      html_title_text="<div style='text-align: center;font-weight: bold;margin-top: -3rem;margin-bottom: 1rem;'>"+tabledata.Title+"</div>";
+      html_title_text+="<div style='float:left;'><button type='button' id='list' class='btn btn-light shadow-none' style='margin:auto;float:left;' onclick='navigateBackToResultTable()'><i class='material-icons'>chevron_left</i>List</button></div><div style='float:right;'><div style='margin-bottom: 2px;' class='fb-btn'><img id='facebook' onclick='facebookPost()' src='http://csci571.com/hw/hw8/Images/facebook.png' height=40 width=40><button type='button' class='btn myBtn shadow-none' style='background-color: lightgrey;margin-left:4px'>";
+
+      var length=selectedItemDom.parentElement.parentElement.childNodes.length-1;
+
+      if(selectedItemDom.parentElement.parentElement.childNodes[length].innerText=="add_shopping_cart")
+        html_title_text+="<i class='material-icons' style='margin:auto;color:black;' onclick='addElementToWishListItem2(this)'>"+selectedItemDom.parentElement.parentElement.childNodes[length].innerText+"";
+      else
+        html_title_text+="<i class='material-icons' style='color:darkgoldenrod;' onclick='removeElementFromWishListItem2(this)'>"+selectedItemDom.parentElement.parentElement.childNodes[length].innerText+"";
+      html_title_text+="</i></button></div><div style='margin-bottom: 2px;'><button id='product' type='button' class='btn shadow-none' onclick='changeColorProduct()' style='border-radius: 0px;'>Product</button><button id='photos' type='button' class='btn shadow-none' onclick='changeColorPhotos()' style='border-radius: 0px;'>Photos</button><button id='shipping' type='button' class='btn shadow-none' onclick='changeColorShipping()' style='border-radius: 0px;'>Shipping</button><button id='seller' type='button' class='btn shadow-none' onclick='changeColorSeller()' style='border-radius: 0px;'>Seller</button><button id='similar_products' type='button' class='btn shadow-none' onclick='changeColorSimilar()' style='border-radius: 0px;'>Similar Products</button></div></div>";
+      var html_text="<div><table id='table2' class='table table-striped table-dark' style='width:100%'>";
+      html_text+="<tbody>";
+      html_text+="<tr><th>Product Images</th>";
+      if(tabledata.PictureURL!=undefined){
+      if(tabledata.PictureURL[0]!="")
+       html_text+="<td style='color:darkseagreen;' data-toggle='modal' data-target='#exampleModal'>View Product Images Here</td>";
+      else
+      html_text+="<td>N/A</td></tr>";
+      }
+      else
+      html_text+="<td>N/A</td></tr>";
+
+
+      html_text+="<tr><th>Subtitle</th>";
+      if(tabledata.Subtitle!=undefined){
+      if(tabledata.Subtitle!="")
+       html_text+="<td>"+ tabledata.Subtitle +"</td>";
+      else
+      html_text+="<td>N/A</td></tr>";
+      }
+      else
+        html_text+="<td>N/A</td></tr>";
+
+
+      html_text+="<tr><th>Price</th>";
+      if(tabledata.CurrentPrice!=undefined){
+      if(tabledata.CurrentPrice.Value!="")
+        html_text+="<td>"+ tabledata.CurrentPrice.Value+" "+tabledata.CurrentPrice.CurrencyID+"</td>";
+      else
+      html_text+="<td>N/A</td></tr>";
+      }
+      else
+        html_text+="<td>N/A</td></tr>";
+
+
+      html_text+="<tr><th>Location</th>";
+      if(tabledata.Location!=undefined){
+      if(tabledata.Location!="")
+        html_text+="<td>"+ tabledata.Location +"</td>";
+      else
+      html_text+="<td>N/A</td></tr>";
+      }
+      else
+        html_text+="<td>N/A</td></tr>";
+
+
+      html_text+="<tr><th>Seller</th>";
+      if(tabledata.Seller!=undefined){
+        if(tabledata.Seller.UserID!=undefined){
+          if(tabledata.Seller.UserID!="")
+            html_text+="<td>"+ tabledata.Seller.UserID+"</td>";
+            else
+            html_text+="<td>N/A</td></tr>";
+        }
+        else
+            html_text+="<td>N/A</td></tr>";
+      }
+      else
+        html_text+="<td>N/A</td></tr>";
+
+
+      html_text+="<tr><th>Return Policy(US)</th>";
+      if(tabledata.ReturnPolicy!=undefined){
+        if(tabledata.ReturnPolicy.ReturnsWithin!=undefined){
+          if(tabledata.ReturnPolicy.ReturnsWithin!="")
+          html_text+="<td> Return Accepted Within "+ tabledata.ReturnPolicy.ReturnsWithin+"</td>";
+           else
+          html_text+="<td>N/A</td></tr>";
+      }
+      else
+          html_text+="<td>N/A</td></tr>";
+      }
+      else
+          html_text+="<td>N/A</td></tr>";
+
+
+      if(tabledata.ItemSpecifics!=undefined){
+        if(tabledata.ItemSpecifics.NameValueList!=undefined){
+      for(i=0;i<tabledata.ItemSpecifics.NameValueList.length;i++){
+        var check=tabledata.ItemSpecifics.NameValueList[i].Name;
+        var valCheck=tabledata.ItemSpecifics.NameValueList[i];
+        
+        html_text+="<tr><th>"+check+"</th>";
+        if(valCheck.Value[0]!="")
+        html_text+="<td>"+ valCheck.Value[0]+"</td>";
+        else
+        html_text+="<td>N/A</td></tr>";
+
+      }
+     }
+    }
+
+    html_text+="</tbody>";
+    html_text+="</table></div>";
+    
+
+    if(jsonObj.Item.PictureURL!=undefined){
+    var carouseltabledata=jsonObj.Item.PictureURL;
+    var carousel=" <div id='carousel_images' class='carousel slide' data-ride='carousel'>";
+    carousel+="<div class='carousel-inner'>";
+    carousel+="<div class='carousel-item active'>";
+    carousel+="<a target='_blank' rel='noopener noreferrer' href="+carouseltabledata[0]+"><img style='border: 7px black solid;border-radius: 5px;' src="+carouseltabledata[0]+" width='100%'' height='100%'></a>";
+    carousel+="</div>";
+    for(var i=1;i<carouseltabledata.length;i++){
+    carousel+="<div class='carousel-item'>";
+    carousel+="<a target='_blank' rel='noopener noreferrer' href="+carouseltabledata[i]+"><img style='border: 7px black solid;border-radius: 5px;' src="+carouseltabledata[i]+" width='100%'' height='100%'></a>";
+    carousel+="</div>";
+    }
+    carousel+="</div>";
+    carousel+="<a class='carousel-control-prev' href='#carousel_images' data-slide='prev'>";
+    carousel+="<span style='background-color: black;' class='carousel-control-prev-icon'></span>";
+    carousel+="</a>";
+    carousel+="<a class='carousel-control-next' href='#carousel_images' data-slide='next'>";
+    carousel+="<span style='background-color: black;' class='carousel-control-next-icon'></span>";
+    carousel+="</a>";
+    carousel+="</div>";
+
+    document.getElementById('modalBody').innerHTML=carousel;
+
+    }
+
+    document.getElementById('progress').style.display="none";
+    document.getElementById('drawfirsttable').style.display="none";
+    document.getElementById('header').innerHTML=html_title_text;
+    document.getElementById('header').style.display="block";
+    document.getElementById('header1').style.display="block";
+    document.getElementById('drawsecondtable').innerHTML=html_text;
+    document.getElementById('drawsecondtable').style.display="block";
+    document.getElementById('wishlisttable').style.display="none";
+    document.getElementById('product').style.backgroundColor = "#1d222b";
+    document.getElementById('product').style.color = "white";
+    
+  }
+  else{
+    document.getElementById('progress').style.display="none";
+    var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+    document.getElementById('drawfirsttable').style.display="none";
+    document.getElementById('header').style.display="none";
+    document.getElementById('header1').style.display="none";
+    document.getElementById('drawsecondtable').innerHTML=error_html_text;
+    document.getElementById('drawsecondtable').style.display="block";
+    document.getElementById('wishlisttable').style.display="none";
+    document.getElementById('product').style.backgroundColor = "#1d222b";
+    document.getElementById('product').style.color = "white";
+  }
+
+  if($(window).width()<500){
+    document.getElementById('similar_products').innerHTML = "Related";
+  }
+}
+
+function facebookPost(){
+  var details=selectedItemDetails;
+  FB.ui({
+    app_id: '427908211289689',
+    method: 'share',
+    display: 'popup',
+    quote:'Buy '+details.Item.Title+' at '+details.Item.CurrentPrice.Value+' USD from '+details.Item.ViewItemURLForNaturalSearch+' below',
+    href: details.Item.ViewItemURLForNaturalSearch,
+  }, function(response){});
+}
+
+
+function changeColorProduct(){
+  document.getElementById('product').style.backgroundColor = "black";
+  document.getElementById('product').style.color = "white";
+  document.getElementById('photos').style.backgroundColor = "white";
+  document.getElementById('photos').style.color = "black";
+  document.getElementById('shipping').style.backgroundColor = "white";
+  document.getElementById('shipping').style.color = "black";
+  document.getElementById('seller').style.backgroundColor = "white";
+  document.getElementById('seller').style.color = "black";
+  document.getElementById('similar_products').style.backgroundColor = "white";
+  document.getElementById('similar_products').style.color = "black";
+
+  fetchDetailsOfItemDetailsPage(selectedItemDom,selectedItemId);
+
+}
+
+function changeColorPhotos(){
+    document.getElementById('photos').style.backgroundColor = "black";
+  document.getElementById('photos').style.color = "white";
+  document.getElementById('product').style.backgroundColor = "white";
+  document.getElementById('product').style.color = "black";
+  document.getElementById('shipping').style.backgroundColor = "white";
+  document.getElementById('shipping').style.color = "black";
+  document.getElementById('seller').style.backgroundColor = "white";
+  document.getElementById('seller').style.color = "black";
+  document.getElementById('similar_products').style.backgroundColor = "white";
+  document.getElementById('similar_products').style.color = "black";
+
+  getPhotosData();
+}
+
+function getPhotosData(){
+  var selectedItemTitleEncoded=encodeURI(selectedItemTitle);
+    $.ajax({
+        url: 'http://csci571-node.us-east-2.elasticbeanstalk.com/photoDetails?title='+selectedItemTitleEncoded,
+        success: function(data) {
+          generatePhotosPage(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('error ' + textStatus + " " + errorThrown);
+        }
+    });
+}
+
+function generatePhotosPage(jsonObj){
+    if(jsonObj.items!=undefined){
+      var tabledata=jsonObj.items;
+      var html_text="<div class='row1' style='width:100%;'>";
+      
+      if($(window).width()<500){
+        for(var i=0;i<tabledata.length;i++){
+          html_text+="<div class='column'>";
+
+        if(tabledata[i]!=undefined){
+        if(tabledata[i].image!=undefined){
+          if(tabledata[i].link!=undefined){
+            html_text+="<a target='_blank' rel='noopener noreferrer' href="+tabledata[i].link+"><img src="+tabledata[i].link+" style='height:"+tabledata[i].image.height+"px;width:100%;border: 7px black solid;padding: 10px;'></a>";
+          }
+        }
+       }
+          html_text+="</div>";
+      }
+
+      }
+      else{
+        for(var i=0;i<3;i++){
+          html_text+="<div class='column'>";
+
+        if(tabledata[i]!=undefined){
+        if(tabledata[i].image!=undefined){
+          if(tabledata[i].link!=undefined){
+            html_text+="<a target='_blank' rel='noopener noreferrer' href="+tabledata[i].link+"><img src="+tabledata[i].link+" style='height:"+tabledata[i].image.height+"px;width:100%;border: 7px black solid;padding: 10px;'></a>";
+            html_text+="<a target='_blank' rel='noopener noreferrer' href="+tabledata[i+3].link+"><img src="+tabledata[i+3].link+" style='height:"+tabledata[i+3].image.height+"px;width:100%;border: 7px black solid;padding: 10px;'></a>";
+            if((i+5)!=5)
+            html_text+="<a target='_blank' rel='noopener noreferrer' href="+tabledata[i+5].link+"><img src="+tabledata[i+5].link+" style='height:"+tabledata[i+5].image.height+"px;width:100%;border: 7px black solid;padding: 10px;'></a>";
+          }
+        }
+       }
+          html_text+="</div>";
+      }
+
+      }
+      html_text+="<div>";
+      document.getElementById('drawsecondtable').innerHTML=html_text;
+      document.getElementById('drawsecondtable').style.display="block";
+    }
+    else{
+      var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+      document.getElementById('drawsecondtable').innerHTML=error_html_text;
+      document.getElementById('drawsecondtable').style.display="block";
+    }
+  }
+
+function changeColorShipping(){
+  document.getElementById('shipping').style.backgroundColor = "black";
+  document.getElementById('shipping').style.color = "white";
+  document.getElementById('product').style.backgroundColor = "white";
+  document.getElementById('product').style.color = "black";
+  document.getElementById('photos').style.backgroundColor = "white";
+  document.getElementById('photos').style.color = "black";
+  document.getElementById('seller').style.backgroundColor = "white";
+  document.getElementById('seller').style.color = "black";
+  document.getElementById('similar_products').style.backgroundColor = "white";
+  document.getElementById('similar_products').style.color = "black";
+    
+    var i;
+    if(initialData!=""){
+     if(initialData.findItemsAdvancedResponse[0]!=undefined){
+      if(initialData.findItemsAdvancedResponse[0].searchResult[0]!=undefined){
+        if(initialData.findItemsAdvancedResponse[0].searchResult[0].item!=undefined){
+          var data=initialData.findItemsAdvancedResponse[0].searchResult[0].item
+                 for (i = 0; i < data.length; i++) { 
+                   if(data[i].itemId[0]==selectedItemId){
+                     generateShippingPage(data[i]);
+                     break;
+                   }
+                 }
+        }
+
+      }
+    }
+    }
+    else{
+      var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+     document.getElementById('drawsecondtable').innerHTML=error_html_text;
+     document.getElementById('drawsecondtable').style.display="block";
+    }
+
+}
+
+function generateShippingPage(shipping){
+  if(shipping.shippingInfo!=undefined){
+    if(shipping.shippingInfo[0]!=undefined){
+      var tabledata=shipping.shippingInfo[0];
+          var html_text="<table id='shipping_table' class='table table-striped table-dark' style='width:100%'>";
+            html_text+="<tbody>";
+
+            html_text+="<tr><th>Shipping Cost</th>";
+            if(tabledata.shippingServiceCost!=undefined){
+            if(tabledata.shippingServiceCost[0]!=""){
+              if(tabledata.shippingServiceCost[0].__value__=="0.0")
+                html_text+="<td>Free Shipping</td></tr>";
+              else
+                html_text+="<td>"+tabledata.shippingServiceCost[0].__value__+" USD</td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+            }
+           else
+           html_text+="<td>N/A</td></tr>";
+
+           html_text+="<tr><th>Shipping Location</th>";
+           if(tabledata.shipToLocations!=undefined){
+            if(tabledata.shipToLocations[0]!=""){
+              html_text+="<td>"+tabledata.shipToLocations[0]+"</td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+          }
+          else
+             html_text+="<td>N/A</td></tr>";
+
+         html_text+="<tr><th>Handling time</th>";
+           if(tabledata.handlingTime!=undefined){
+            if(tabledata.handlingTime[0]!=""){
+              if(tabledata.handlingTime[0]==1)
+              html_text+="<td>"+tabledata.handlingTime[0]+" Day</td></tr>";
+            else
+              html_text+="<td>"+tabledata.handlingTime[0]+" Days</td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+          }
+          else
+             html_text+="<td>N/A</td></tr>";
+
+         html_text+="<tr><th>Expedited Shipping</th>";
+           if(tabledata.expeditedShipping!=undefined){
+            if(tabledata.expeditedShipping[0]!=""){
+              if(tabledata.expeditedShipping[0]=="true")
+                 html_text+="<td><i style='color:green;background-color:transparent;' class='material-icons'>done</i></td></tr>";
+             else
+               html_text+="<td><i style='color:red;background-color:transparent;' class='material-icons'>close</i></td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+          }
+          else
+             html_text+="<td>N/A</td></tr>";
+
+         html_text+="<tr><th>One Day Shipping</th>";
+           if(tabledata.oneDayShippingAvailable!=undefined){
+            if(tabledata.oneDayShippingAvailable[0]!=""){
+              if(tabledata.oneDayShippingAvailable[0]=="true")
+                 html_text+="<td><i style='color:green;background-color:transparent;' class='material-icons'>done</i></td></tr>";
+             else
+               html_text+="<td><i style='color:red;background-color:transparent;' class='material-icons'>close</i></td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+          }
+          else
+             html_text+="<td>N/A</td></tr>";
+
+         html_text+="<tr><th>Return Accepted</th>";
+           if(shipping.returnsAccepted!=undefined){
+            if(shipping.returnsAccepted[0]!=""){
+              if(shipping.returnsAccepted[0]=="true")
+                 html_text+="<td><i style='color:green;background-color:transparent;' class='material-icons'>done</i></td></tr>";
+             else
+               html_text+="<td><i style='color:red;background-color:transparent;' class='material-icons'>close</i></td></tr>";
+            }
+            else
+             html_text+="<td>N/A</td></tr>";
+          }
+          else
+             html_text+="<td>N/A</td></tr>";
+
+
+           html_text+="</tbody>";
+           html_text+="</table>";
+           document.getElementById('drawsecondtable').innerHTML=html_text;
+           document.getElementById('drawsecondtable').style.display="block";
+    }
+    else{
+       var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+       document.getElementById('drawsecondtable').innerHTML=error_html_text;
+       document.getElementById('drawsecondtable').style.display="block";
+    }
+  }
+  else{
+     var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+     document.getElementById('drawsecondtable').innerHTML=error_html_text;
+     document.getElementById('drawsecondtable').style.display="block";
+  }
+}
+
+function changeColorSeller(){
+  document.getElementById('seller').style.backgroundColor = "black";
+  document.getElementById('seller').style.color = "white";
+  document.getElementById('product').style.backgroundColor = "white";
+  document.getElementById('product').style.color = "black";
+  document.getElementById('photos').style.backgroundColor = "white";
+  document.getElementById('photos').style.color = "black";
+  document.getElementById('shipping').style.backgroundColor = "white";
+  document.getElementById('shipping').style.color = "black";
+  document.getElementById('similar_products').style.backgroundColor = "white";
+  document.getElementById('similar_products').style.color = "black";
+
+    generateSellerPage();
+}
+
+function generateSellerPage(){
+  var item=selectedItemDetails.Item;
+  var html_text="";
+
+    if(selectedItemDetails.Item!=undefined){
+      if(item.Seller!=undefined){
+      var tabledata=item.Seller;
+          html_text="<table id='shipping_table' class='table table-striped table-dark' style='width:100%'>";
+
+            html_text+="<caption style='caption-side:top;font-weight:bold;text-align:center;color:white;background-color:#212529;'>"+tabledata.UserID+"</caption>";
+            html_text+="<tbody>";
+
+         
+            if(tabledata.FeedbackScore!=""){
+              html_text+="<tr><th>Feedback Score</th>";
+              html_text+="<td>"+tabledata.FeedbackScore+"</td></tr>";
+            }
+           
+
+            if(tabledata.PositiveFeedbackPercent!=""){
+              html_text+="<tr><th>Popularity</th>";
+              html_text+="<td id='hi'></td></tr>";
+              localStorage.setItem("feedback", tabledata.PositiveFeedbackPercent);
+
+            }
+            
+
+            if(tabledata.FeedbackRatingStar!=""){
+              html_text+="<tr><th>Feedback Rating Star</th>";
+              if(tabledata.FeedbackScore>=10 && tabledata.FeedbackScore<=49)
+              html_text+="<td><i style='color:yellow' class='material-icons'>star_border</i></td></tr>";
+              if(tabledata.FeedbackScore>=50 && tabledata.FeedbackScore<=99)
+              html_text+="<td><i style='color:blue' class='material-icons'>star_border</i></td></tr>";
+              if(tabledata.FeedbackScore>=100 && tabledata.FeedbackScore<=499)
+              html_text+="<td><i style='color:turquoise' class='material-icons'>star_border</i></td></tr>";
+              if(tabledata.FeedbackScore>=500 && tabledata.FeedbackScore<=999)
+              html_text+="<td><i style='color:purple' class='material-icons'>star_border</i></td></tr>";
+              if(tabledata.FeedbackScore>=1000 && tabledata.FeedbackScore<=4999)
+              html_text+="<td><i style='color:red' class='material-icons'>star_border</i></td></tr>";
+              if(tabledata.FeedbackScore>=5000 && tabledata.FeedbackScore<=9999)
+              html_text+="<td><i style='color:green' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=10000 && tabledata.FeedbackScore<=24999)
+              html_text+="<td><i style='color:yellow' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=25000 && tabledata.FeedbackScore<=49999)
+              html_text+="<td><i style='color:turquoise' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=50000 && tabledata.FeedbackScore<=99999)
+              html_text+="<td><i style='color:purple' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=100000 && tabledata.FeedbackScore<=499000)
+              html_text+="<td><i style='color:red' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=500000 && tabledata.FeedbackScore<=999000)
+              html_text+="<td><i style='color:green' class='material-icons'>stars</i></td></tr>";
+              if(tabledata.FeedbackScore>=1000000)
+              html_text+="<td><i style='color:silver' class='material-icons'>stars</i></td></tr>";
+              
+            }
+            
+
+            
+            if(tabledata.TopRatedSeller!=""){
+              html_text+="<tr><th>Top Rated</th>";
+              if(tabledata.TopRatedSeller==true)
+              html_text+="<td><i style='color:green;background-color:transparent;' class='material-icons'>done</i></td></tr>";
+              else
+              html_text+="<td><i style='color:red;background-color:transparent;' class='material-icons'>close</i></td></tr>";
+            }
+            
+
+     }
+
+     if(item.Storefront!=undefined){
+            tabledata=item.Storefront; 
+          
+            if(tabledata.StoreName!=""){
+              html_text+="<tr><th>Store Name</th>";
+              html_text+="<td>"+tabledata.StoreName+"</td></tr>";
+            }
+
+            
+            if(tabledata.StoreURL!=""){
+            html_text+="<tr><th>Buy Product At</th>";
+              html_text+="<td><a target='_blank' rel='noopener noreferrer' style='color:green' href="+tabledata.StoreURL+">Store</a></td></tr>";
+            }
+            
+
+     }
+
+    html_text+="</tbody>";
+    html_text+="</table>";
+
+  document.getElementById('drawsecondtable').innerHTML=html_text;
+  document.getElementById('drawsecondtable').style.display="block";
+  angular.element('#svgRound').triggerHandler('click');
+  }
+  else{
+    var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+    document.getElementById('drawsecondtable').innerHTML=error_html_text;
+    document.getElementById('drawsecondtable').style.display="block";
+  }
+}
+
+function changeColorSimilar(){
+  document.getElementById('similar_products').style.backgroundColor = "black";
+  document.getElementById('similar_products').style.color = "white";
+  document.getElementById('product').style.backgroundColor = "white";
+  document.getElementById('product').style.color = "black";
+  document.getElementById('photos').style.backgroundColor = "white";
+  document.getElementById('photos').style.color = "black";
+  document.getElementById('shipping').style.backgroundColor = "white";
+  document.getElementById('shipping').style.color = "black";
+  document.getElementById('seller').style.backgroundColor = "white";
+  document.getElementById('seller').style.color = "black";
+
+  getSimilarProductData();
+}
+
+function getSimilarProductData(){
+    $.ajax({
+        url:'http://csci571-node.us-east-2.elasticbeanstalk.com/similarDetails?itemId='+selectedItemId,
+        success: function(data) {
+          generateSimilarProductPage(JSON.parse(data));
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('error ' + textStatus + " " + errorThrown);
+        }
+    });
+}
+
+function enableSecondSelect(){
+  document.getElementById('similar_drop2').disabled=false;
+  callSelectedFunction();
+}
+
+function generateSimilarProductPage(jsonObj){
+  if(jsonObj.getSimilarItemsResponse!=undefined){
+    if(jsonObj.getSimilarItemsResponse.itemRecommendations!=undefined){
+      if(jsonObj.getSimilarItemsResponse.itemRecommendations.item!=undefined){
+          var divdata=jsonObj.getSimilarItemsResponse.itemRecommendations.item;
+          var html_text="<div style='margin-top:60px;'><hr>";
+          html_text+="<div style='margin-bottom: 1rem;'><select style='float:left;margin-right:1rem;' class='form-control col-sm-3 col-md-3 col-lg-3' name='similar_drop1' id='similar_drop1' onchange='enableSecondSelect()'>";
+          html_text+="<option value='default' selected>Default</option>";
+          html_text+="<option value='productname' >Product Name</option>";
+          html_text+="<option value='daysleft' >Days Left</option>";
+          html_text+="<option value='price' >Price</option>";
+          html_text+="<option value='shippingcost' >Shipping Cost</option></select>";
+          html_text+="<select class='form-control col-sm-3 col-md-3 col-lg-3' disabled name='similar_drop2' id='similar_drop2' onchange='callSelectedFunction()'>";
+          html_text+="<option value='ascending' selected>Ascending</option>";
+          html_text+="<option value='descending' >Descending</option></select></div>";
+          if(divdata.length<5){
+           var html_text1="<div id='saving' class='wrap'>";
+          for(var i=0;i<divdata.length;i++){
+
+            if(divdata[i].imageURL!=undefined)
+            html_text1+="<div><div class='row selectedrow' style='margin-bottom:1rem;background-color:#1d222b'><div class='col-sm-2 margins'><img class='card-img' src="+divdata[i].imageURL+" style='height:100px;width:100px;'></div>";
+
+
+            if(divdata[i].title!=undefined)
+            html_text1+="<div class='col-sm-6'><div class='card-body-right margins card-title'><span class='card-text' style='display:block;color:teal;font-size: 13px;'>"+divdata[i].title+"</span>";
+            
+            if(divdata[i].buyItNowPrice!=undefined){
+              if(divdata[i].buyItNowPrice.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:darkseagreen;font-size: 13px;float: left;'>Price: </span><span class='card-text card-price' style='display:block;color:darkseagreen;font-size: 13px;'>"+divdata[i].buyItNowPrice.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].shippingCost!=undefined){
+              if(divdata[i].shippingCost.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:orange;font-size: 13px;float: left;'>Shipping Cost:</span><span class='card-text card-ship' style='display:block;color:orange;font-size: 13px;'>"+divdata[i].shippingCost.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].timeLeft!=undefined){
+              var timeleft=divdata[i].timeLeft;
+              var start = timeleft.indexOf("P");
+              var end = timeleft.indexOf("D");
+              var time_data=timeleft.substring(start+1, end);
+              html_text1+="<span class='card-text' style='display:block;color:white;font-size: 13px;float: left;'>Days Left:</span><span class='card-text card-days' style='display:block;color:white;font-size: 13px;'>"+time_data+"</span></div></div></div></div>";
+            }
+
+          }
+          html_text1+="</div>";
+          document.getElementById('drawsecondtable').innerHTML=html_text+html_text1;
+          document.getElementById('drawsecondtable').style.display="block";
+          saved_html=html_text+html_text1;
+
+          }
+          else{
+          var html_text1="<div id='saving' class='wrap'>";
+          for(var i=0;i<5;i++){
+
+            if(divdata[i].imageURL!=undefined)
+            html_text1+="<div><div class='row selectedrow' style='margin-bottom:1rem;background-color:#1d222b'><div class='col-sm-2 margins'><img class='card-img' src="+divdata[i].imageURL+" style='height:100px;width:100px;'></div>";
+
+
+            if(divdata[i].title!=undefined)
+            html_text1+="<div class='col-sm-6'><div class='card-body-right margins card-title'><span class='card-text' style='display:block;color:teal;font-size: 13px;'>"+divdata[i].title+"</span>";
+            
+            if(divdata[i].buyItNowPrice!=undefined){
+              if(divdata[i].buyItNowPrice.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:darkseagreen;font-size: 13px;float: left;'>Price: </span><span class='card-text card-price' style='display:block;color:darkseagreen;font-size: 13px;'>"+divdata[i].buyItNowPrice.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].shippingCost!=undefined){
+              if(divdata[i].shippingCost.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:orange;font-size: 13px;float: left;'>Shipping Cost:</span><span class='card-text card-ship' style='display:block;color:orange;font-size: 13px;'>"+divdata[i].shippingCost.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].timeLeft!=undefined){
+              var timeleft=divdata[i].timeLeft;
+              var start = timeleft.indexOf("P");
+              var end = timeleft.indexOf("D");
+              var time_data=timeleft.substring(start+1, end);
+              html_text1+="<span class='card-text' style='display:block;color:white;font-size: 13px;float: left;'>Days Left:</span><span class='card-text card-days' style='display:block;color:white;font-size: 13px;'>"+time_data+"</span></div></div></div></div>";
+            }
+
+          }
+
+          html_text1+="<div class='row justify-content-center align-items-center'><button id='showmore' type='button' class='btn btn-dark' onclick='showResults()' style='display:block;'>Show More</button></div>";
+          html_text1+="<div id='showItems'>";
+
+          for(var i=5;i<divdata.length;i++){
+            if(divdata[i].imageURL!=undefined)
+            html_text1+="<div><div class='row selectedrow' style='margin-bottom:1rem;background-color:#1d222b'><div class='col-sm-2 margins'><img class='card-img' src="+divdata[i].imageURL+" style='height:100px;width:100px;'></div>";
+
+
+            if(divdata[i].title!=undefined)
+            html_text1+="<div class='col-sm-6'><div class='card-body-right margins card-title'><span class='card-text' style='display:block;color:teal;font-size: 13px;'>"+divdata[i].title+"</span>";
+            
+            if(divdata[i].buyItNowPrice!=undefined){
+              if(divdata[i].buyItNowPrice.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:darkseagreen;font-size: 13px;float: left;'>Price: </span><span class='card-text card-price' style='display:block;color:darkseagreen;font-size: 13px;'>"+divdata[i].buyItNowPrice.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].shippingCost!=undefined){
+              if(divdata[i].shippingCost.__value__!=undefined){
+                html_text1+="<span class='card-text' style='display:block;color:orange;font-size: 13px;float: left;'>Shipping Cost: </span><span class='card-text card-ship' style='display:block;color:orange;font-size: 13px;'>"+divdata[i].shippingCost.__value__+"</span>";
+              }
+            }
+
+            if(divdata[i].timeLeft!=undefined){
+              var timeleft=divdata[i].timeLeft;
+              var start = timeleft.indexOf("P");
+              var end = timeleft.indexOf("D");
+              var time_data=timeleft.substring(start+1, end);
+              html_text1+="<span class='card-text'  style='display:block;color:white;font-size: 13px;float: left;'>Days Left:</span><span class='card-text card-days' style='display:block;color:white;font-size: 13px;'>"+time_data+"</span></div></div></div></div>";
+            }
+
+          }
+
+          html_text1+="<div class='row justify-content-center align-items-center'><button id='showless' type='button' class='btn btn-dark' onclick='hideResults()' style='display:none;'>Show Less</button></div></div>";
+          html_text+="</div></div>";
+          document.getElementById('drawsecondtable').innerHTML=html_text+html_text1;
+          document.getElementById('drawsecondtable').style.display="block";
+          saved_html=html_text+html_text1;
+          document.getElementById('showItems').style.display="none";
+          }
+      }
+      else{
+         var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+         document.getElementById('drawsecondtable').innerHTML=html_text+error_html_text;
+         document.getElementById('drawsecondtable').style.display="block";
+      }
+    }
+    else{
+      var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+      document.getElementById('drawsecondtable').innerHTML=html_text+error_html_text;
+      document.getElementById('drawsecondtable').style.display="block";
+    }
+  }
+  else{
+     var error_html_text="<div class='alert alert-warning' role='alert'>No Records</div>";
+     document.getElementById('drawsecondtable').innerHTML=html_text+error_html_text;
+     document.getElementById('drawsecondtable').style.display="block";
+  }
+
+}
+
+function appending(title){
+  var ordering=document.getElementById('similar_drop2').value;
+    if(ordering=="descending"){
+    $('.selectedrow').remove();
+  $('#showmore').remove();
+  $('#showmoreextendedid').remove();
+  $('#showlessextendedid').remove();
+  if(maxToShow==5){
+    for(var i=title.length-1; i>=title.length-5; i--){
+          $('.wrap').append(title[i][1]);
+    }
+    if(title.length>=4)
+    $('.wrap').append("<div id='showmoreextendedid' class='row justify-content-center align-items-center'><button id='showmoreextended' type='button' class='btn btn-dark' onclick='showResultsExtended()' style='display:block;'>Show More</button></div>");
+  }
+  else{
+    for(var i=title.length-1; i>=0; i--){
+          $('.wrap').append(title[i][1]);
+    }
+      if(title.length>=4)
+      $('.wrap').append("<div id='showlessextendedid' class='row justify-content-center align-items-center'><button id='showlessextended' type='button' class='btn btn-dark' onclick='hideResultsExtended()' style='display:block;'>Show Less</button></div>");
+  }
+  }
+  else
+    {
+    $('.selectedrow').remove();
+  $('#showmore').remove();
+  $('#showmoreextendedid').remove();
+  $('#showlessextendedid').remove();
+  if(maxToShow==5){
+    for(var i=0; i<5; i++){
+          $('.wrap').append(title[i][1]);
+    }
+    if(title.length>=4)
+    $('.wrap').append("<div id='showmoreextendedid' class='row justify-content-center align-items-center'><button id='showmoreextended' type='button' class='btn btn-dark' onclick='showResultsExtended()' style='display:block;'>Show More</button></div>");
+  }
+  else{
+    for(var i=0; i<title.length; i++){
+          $('.wrap').append(title[i][1]);
+    }
+      if(title.length>=4)
+      $('.wrap').append("<div id='showlessextendedid' class='row justify-content-center align-items-center'><button id='showlessextended' type='button' class='btn btn-dark' onclick='hideResultsExtended()' style='display:block;'>Show Less</button></div>");
+  }
+  }
+}
+
+function showResults(){
+  maxToShow=20;
+  document.getElementById('showmore').style.display="none";
+  document.getElementById('showItems').style.display="block";
+  document.getElementById('showless').style.display="block";
+}
+
+function hideResults(){
+  maxToShow=5;
+  document.getElementById('showmore').style.display="block";
+  document.getElementById('showItems').style.display="none";
+  document.getElementById('showless').style.display="none";
+}
+
+function callSelectedFunction(){
+  var selected_value=document.getElementById('similar_drop1').value;
+  var selected_value2=document.getElementById('similar_drop2').value;
+  $('#drawsecondtable').empty();
+  document.getElementById('drawsecondtable').innerHTML=saved_html;
+  document.getElementById('similar_drop1').value=selected_value;
+  document.getElementById('similar_drop2').value=selected_value2;
+  document.getElementById('similar_drop2').disabled=false;
+  if(selected_value=="productname"){
+    title = [];
+
+    $('.selectedrow').each(function(){
+        
+        var titleArr = [];
+        
+        titleArr.push($('.card-title', this).text());
+        titleArr.push($(this));
+        title.push(titleArr);
+        title.sort();
+        
+      })
+appending(title);
+ }
+
+ else
+
+  if(selected_value=="daysleft"){
+    title = [];
+
+    $('.selectedrow').each(function(){
+        var titleArr = [];
+        titleArr.push(parseInt($('.card-days', this).text()));
+        titleArr.push($(this));
+        title.push(titleArr);
+        title.sort(); 
+      })
+    for(var i=0;i<title.length;i++){
+      for(var j=i+1;j<title.length;j++){
+        if(title[i][0]>title[j][0]){
+          var temp=title[i];
+          title[i]=title[j];
+          title[j]=temp;
+        }
+      }
+    }
+    appending(title);
+  }
+
+  else
+
+  if(selected_value=="default"){
+    title = [];
+
+    $('.selectedrow').each(function(){
+        var titleArr = [];
+        titleArr.push(parseInt($('.card-days', this).text()));
+        titleArr.push($(this));
+        title.push(titleArr);
+      })
+    appending(title);
+    document.getElementById('similar_drop2').disabled=true;
+  }
+
+  else
+
+  if(selected_value=="price"){
+    title = [];
+
+    $('.selectedrow').each(function(){
+        var titleArr = [];
+        titleArr.push(parseInt($('.card-price', this).text()));
+        titleArr.push($(this));
+        title.push(titleArr);
+        title.sort(); 
+      })
+    for(var i=0;i<title.length;i++){
+      for(var j=i+1;j<title.length;j++){
+        if(title[i][0]>title[j][0]){
+          var temp=title[i];
+          title[i]=title[j];
+          title[j]=temp;
+        }
+      }
+    }
+  appending(title);
+
+}
+
+else
+
+  if(selected_value=="shippingcost"){
+    title = [];
+
+    $('.selectedrow').each(function(){
+        var titleArr = [];
+        titleArr.push(parseInt($('.card-ship', this).text()));
+        titleArr.push($(this));
+        title.push(titleArr);
+        title.sort(); 
+      })
+    for(var i=0;i<title.length;i++){
+      for(var j=i+1;j<title.length;j++){
+        if(title[i][0]>title[j][0]){
+          var temp=title[i];
+          title[i]=title[j];
+          title[j]=temp;
+        }
+      }
+    }
+  appending(title);
+
+}
+}
+
+function showResultsExtended(){
+  maxToShow=20; 
+  $('#showmoreextendedid').remove();
+  $('#showlessextendedid').remove();
+  $('.selectedrow').remove();
+  if(document.getElementById('similar_drop2').value=="ascending"){ 
+     for(var i=0; i<title.length; i++){
+          $('.wrap').append(title[i][1]);
+    }
+      $('.wrap').append("<div id='showlessextendedid' class='row justify-content-center align-items-center'><button id='showlessextended' type='button' class='btn btn-dark' onclick='hideResultsExtended()'>Show Less</button></div>");
+  }
+  else
+    if(document.getElementById('similar_drop2').value=="descending"){ 
+     for(var i=title.length-1; i>=0; i--){
+          $('.wrap').append(title[i][1]);
+    }
+      $('.wrap').append("<div id='showlessextendedid' class='row justify-content-center align-items-center'><button id='showlessextended' type='button' class='btn btn-dark' onclick='hideResultsExtended()'>Show Less</button></div>");
+  }
+}
+
+function hideResultsExtended(){
+  maxToShow=5; 
+  $('#showmoreextendedid').remove();
+  $('#showlessextendedid').remove();
+  $('.selectedrow').remove();
+  if(document.getElementById('similar_drop2').value=="ascending"){ 
+    for(var i=0; i<5; i++){
+          $('.wrap').append(title[i][1]);
+    }
+      $('.wrap').append("<div id='showmoreextendedid' class='row justify-content-center align-items-center'><button id='showmoreextended' type='button' class='btn btn-dark' onclick='showResultsExtended()' style='display:block;'>Show More</button></div>");
+  }
+  else
+    if(document.getElementById('similar_drop2').value=="descending"){ 
+     for(var i=title.length-1; i>=title.length-5; i--){
+          $('.wrap').append(title[i][1]);
+    }
+      $('.wrap').append("<div id='showlessextendedid' class='row justify-content-center align-items-center'><button id='showlessextended' type='button' class='btn btn-dark' onclick='hideResultsExtended()'>Show Less</button></div>");
+  }
+}
+
+</script>
+
+<script>
+        var app =angular.module('firstApplication', ['ngMaterial','angular-svg-round-progressbar']);
+            app.controller('autoCompleteController',function ($scope, $http, $q, GetCountryService,$injector) {
+        $scope.isDisabled = false;
+        $scope.noCache = false;
+
+        $scope.selectedItemChange = function (item) {
+            $scope.selectedItem =item;
+        }
+        $scope.searchTextChange = function (str) {
+          $scope.searchText=str;
+          return GetCountryService.getCountry(str);
+        }
+
+         $scope.newBtn = function () {
+      var $newDiv = $("<round-progress max=100 current="+localStorage.getItem("feedback")+" color=green bgcolor=#eaeaea radius=15 stroke=2 semi=false rounded=true  clockwise=true responsive=false duration=800  animation=easeInOutQuart animation-delay=0></round-progress><div style='position:relative;font-size: 11px;top: -22px;left: 3px;'>"+localStorage.getItem("feedback")+"</div>");
+    
+      $injector.invoke(function ($compile) {
+          var div = $compile($newDiv);
+          var content = div($scope);
+          $(document.getElementById('hi')).append(content);
+      });
+    };
+
+    });
+
+            app.factory('GetCountryService', function ($http, $q) {
+        return {
+            getCountry: function(str) {
+        var url = 'http://csci571-node.us-east-2.elasticbeanstalk.com/postalCode?startsWith='+str+"";
+                return $http.get(url)
+                    .then(function(response) {
+                        if (typeof response.data.postalCodes === 'object') {
+                            var values = [];
+                             for(var i=0;i<response.data.postalCodes.length;i++){
+                              values.push({"display":response.data.postalCodes[i].postalCode});
+                             }
+                             return values;
+                        } else {
+                            return $q.reject(response.data.records);
+                        }
+
+                    }, function(response) {
+                        return $q.reject(response.data.records);
+                    });
+            }
+        };
+    });
+ 
+</script>      
+
+</body>
+</html>
